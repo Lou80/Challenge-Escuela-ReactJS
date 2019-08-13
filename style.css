@@ -1,15 +1,10 @@
-body {
-  box-sizing: border-box;
-}
-
 #users_grid {
   display: flex;
   flex-wrap: wrap;
   padding: 50px;
-  background-image: url("https://www.freepik.es/vector-gratis/fondo-luminoso-puntos_1252906.htm#page=1&query=fondo%20abstract&position=2");
 }
 
-.user {
+.user_thumbnail {
   width: 250px;
   height: 100px;
   display: flex;
@@ -27,6 +22,14 @@ body {
 
 .data_home {
   width: 60%;
+}
+
+body {
+  box-sizing: border-box;
+}
+
+.hidden {
+  display: none;
 }
 
 /*# sourceMappingURL=style.css.map */
