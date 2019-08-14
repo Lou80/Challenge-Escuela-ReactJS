@@ -6,15 +6,15 @@
 }
 
 .user_thumbnail {
-    width: 8%;
-    height: 100px;
+    width: 10%;
+    height: 120px;
     border: 1px solid gray;
     border-radius: 3px;
     margin: 10px;
     box-shadow: 2px 3px 4px lightgrey;
     flex-direction: column;
     align-items: center;
-    padding: 7px 15px;
+    padding: 7px 5px 4px;
 
     cursor: pointer;
     img {
@@ -22,24 +22,26 @@
     }
     .data_home {
         width: 100%;
+        text-align: center;
+        p, span, div {
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
         p {
-            margin-block-start: 0.2em;
-            margin-block-end: 0.8em;
+            margin-block-start: 0em;
+            margin-block-end: 0em;
             color:  rgb(60, 60, 60);
             font-size: 0.8em;
-            text-align: center;
-            
         }
-        span {
+        .city_line {
+            padding-top: 10px;
+        }
+        i, span {
             color: rgb(100, 100, 100);
             font-size: 0.7em;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            span.city {
-                width: 70%;
-                text-overflow: ellipsis;
-            }
         }
+        
     }
     
 }

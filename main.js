@@ -34,8 +34,10 @@ fetch('https://randomuser.me/api/?results=56&inc=name,location,login,picture,nat
                 </div>
                 <div class="data_home">
                     <p>${fullName.trim()}</p>
-                    <i class="fas fa-globe"></i><span class="nation">${country}</span>
+                    <i class="fas fa-globe-americas"></i><span class="nation"> ${country}</span>
+                    <div class="city_line">
                     <i class="fas fa-map-pin"></i><span class="city"> ${city.trim()}</span>
+                    </div>
                 </div>
             </div>`;
         })
