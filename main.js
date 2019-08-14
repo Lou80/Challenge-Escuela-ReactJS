@@ -23,16 +23,22 @@ fetch('https://randomuser.me/api/?results=56&inc=name,location,login,picture,nat
     users.forEach(u => {
        const fullName = `${u.name.first} ${u.name.last}`.titleize();
        const city = `${u.location.city}`.titleize();
-       usersGrid.innerHTML += `<div class="user_thumbnail" id="${u.login.uuid}" onclick="openProfile(this)" > 
-            <div class="img_home">
-                <img src="${u.picture.thumbnail}">
-            </div>
-            <div class="data_home">
-                <p>${fullName.trim()}</p>
-                <span><i class="fas fa-map-pin"></i> ${city}</span>
-                <span>${u.nat}</span>
-            </div>
-        </div>`;
+       fetch(`https://restcountries.eu/rest/v2/alpha/${u.nat}`)
+        .then(res => res.json() )
+        .then( data => {
+            const country = data.demonym;
+            usersGrid.innerHTML +=
+            `<div class="user_thumbnail flex" id="${u.login.uuid}" onclick="openProfile(this)" > 
+                <div class="img_home">
+                    <img src="${u.picture.thumbnail}">
+                </div>
+                <div class="data_home">
+                    <p>${fullName.trim()}</p>
+                    <i class="fas fa-globe"></i><span class="nation">${country}</span>
+                    <i class="fas fa-map-pin"></i><span class="city"> ${city.trim()}</span>
+                </div>
+            </div>`;
+        })
     })
 });
 
@@ -53,3 +59,5 @@ const closeProfile = () => {
     usersGrid.classList.remove('opacity');
     userProfile.classList.add('hidden');
 }
+
+
