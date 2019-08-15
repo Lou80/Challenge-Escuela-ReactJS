@@ -1,20 +1,23 @@
 #users_grid {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    padding: 30px;
+    justify-content: space-evenly;
+    padding-top: 15px;
 }
 
 .user_thumbnail {
-    width: 10%;
+    width: 180px;
     height: 120px;
     border: 1px solid gray;
-    border-radius: 3px;
+    border-radius: 5px;
     margin: 10px;
-    box-shadow: 2px 3px 4px lightgrey;
+    -webkit-box-shadow: 9px 7px 5px 0px rgba(81,77,77,1);
+    -moz-box-shadow: 9px 7px 5px 0px rgba(81,77,77,1);
+    box-shadow: 9px 7px 5px 0px rgba(81,77,77,1);
     flex-direction: column;
     align-items: center;
     padding: 7px 5px 4px;
+    background-color: #fcfcfc;
 
     cursor: pointer;
     img {
@@ -23,22 +26,20 @@
     .data_home {
         width: 100%;
         text-align: center;
-        p, span, div {
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            overflow: hidden;
-        }
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
         p {
             margin-block-start: 0em;
             margin-block-end: 0em;
-            color:  rgb(60, 60, 60);
-            font-size: 0.8em;
+            color:  #514D4D;
+            font-size: 0.9em;
         }
         .city_line {
             padding-top: 10px;
         }
         i, span {
-            color: rgb(100, 100, 100);
+            color: #AFAEAE;
             font-size: 0.7em;
         }
         
@@ -46,8 +47,10 @@
     
 }
 
-
-
+.user_thumbnail:hover {
+    -webkit-transform:scale(1.1);
+    transform:scale(1.1);
+}
 
 .opacity {
     opacity: 0.3;

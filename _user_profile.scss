@@ -1,18 +1,17 @@
-.profile {
-
-    height: 400px;
-    width: 600px;
-    border: solid 1px black;
-    z-index: 1;
-    margin: auto;
-}
 
 #user_profile {
-    position: relative;
-    top: -766px;
-    span i {
-        font-size: 1.4em;
-        margin-left: 94%;
-        margin-top: 2%;
-    }
+    position: fixed;
+    top: 160px;
+    left: 33%;
+    .profile {
+        height: 300px;
+        width: 500px;
+        border: solid 1px black;
+        z-index: 1;
+        span i {
+            font-size: 1.4em;
+            margin-left: 94%;
+            margin-top: 2%;
+        }
+    }  
 }

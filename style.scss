@@ -4,6 +4,43 @@
 body {
     box-sizing: border-box;
     font-family: 'Roboto';
+    background-color: #E4FCF0;
+}
+#title {
+    text-align: center;
+}
+main {
+    max-height: 1300px;
+    padding: 30px;
+
+    #page {
+        text-align: right;
+        font-weight: 300;
+        line-height: 2;
+        letter-spacing: .5px;
+        padding-right: 25px;
+    }
+    
+    .button {
+        text-align: center;
+        padding: 25px 0px;
+    }
+    
+    button {
+        border: 1px solid;
+        font-weight: 300;
+        font-size: 11px;
+        line-height: 2;
+        letter-spacing: .5px;
+        padding: 5px 20px 4px;
+        cursor: pointer;
+        background: transparent;
+        outline: none;
+    }
+    
+    .button_onmouseover {
+
+    }
 }
 
 .hidden {

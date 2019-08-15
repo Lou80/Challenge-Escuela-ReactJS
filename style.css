@@ -1,20 +1,23 @@
 #users_grid {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  padding: 30px;
+  justify-content: space-evenly;
+  padding-top: 15px;
 }
 
 .user_thumbnail {
-  width: 10%;
+  width: 180px;
   height: 120px;
   border: 1px solid gray;
-  border-radius: 3px;
+  border-radius: 5px;
   margin: 10px;
-  box-shadow: 2px 3px 4px lightgrey;
+  -webkit-box-shadow: 9px 7px 5px 0px #514d4d;
+  -moz-box-shadow: 9px 7px 5px 0px #514d4d;
+  box-shadow: 9px 7px 5px 0px #514d4d;
   flex-direction: column;
   align-items: center;
   padding: 7px 5px 4px;
+  background-color: #fcfcfc;
   cursor: pointer;
 }
 .user_thumbnail img {
@@ -23,8 +26,6 @@
 .user_thumbnail .data_home {
   width: 100%;
   text-align: center;
-}
-.user_thumbnail .data_home p, .user_thumbnail .data_home span, .user_thumbnail .data_home div {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -32,34 +33,38 @@
 .user_thumbnail .data_home p {
   margin-block-start: 0em;
   margin-block-end: 0em;
-  color: #3c3c3c;
-  font-size: 0.8em;
+  color: #514D4D;
+  font-size: 0.9em;
 }
 .user_thumbnail .data_home .city_line {
   padding-top: 10px;
 }
 .user_thumbnail .data_home i, .user_thumbnail .data_home span {
-  color: #646464;
+  color: #AFAEAE;
   font-size: 0.7em;
+}
+
+.user_thumbnail:hover {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .opacity {
   opacity: 0.3;
 }
 
-.profile {
-  height: 400px;
-  width: 600px;
+#user_profile {
+  position: fixed;
+  top: 160px;
+  left: 33%;
+}
+#user_profile .profile {
+  height: 300px;
+  width: 500px;
   border: solid 1px black;
   z-index: 1;
-  margin: auto;
 }
-
-#user_profile {
-  position: relative;
-  top: -766px;
-}
-#user_profile span i {
+#user_profile .profile span i {
   font-size: 1.4em;
   margin-left: 94%;
   margin-top: 2%;
@@ -68,8 +73,39 @@
 body {
   box-sizing: border-box;
   font-family: "Roboto";
+  background-color: #E4FCF0;
 }
 
+#title {
+  text-align: center;
+}
+
+main {
+  max-height: 1300px;
+  padding: 30px;
+}
+main #page {
+  text-align: right;
+  font-weight: 300;
+  line-height: 2;
+  letter-spacing: 0.5px;
+  padding-right: 25px;
+}
+main .button {
+  text-align: center;
+  padding: 25px 0px;
+}
+main button {
+  border: 1px solid;
+  font-weight: 300;
+  font-size: 11px;
+  line-height: 2;
+  letter-spacing: 0.5px;
+  padding: 5px 20px 4px;
+  cursor: pointer;
+  background: transparent;
+  outline: none;
+}
 .hidden {
   display: none;
 }

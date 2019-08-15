@@ -1,6 +1,9 @@
 const usersGrid = document.getElementById('users_grid');
 const userProfile = document.getElementById('user_profile');
 let users = '';
+const loadMore = document.querySelector('.button #load_more');
+let page = 1;
+const pageNumber = document.querySelector('#page_number');
 
 String.prototype.capitalize = function() {
     return this.charAt(0).toUpperCase() + this.slice(1);
@@ -15,18 +18,20 @@ String.prototype.titleize = function() {
     return string_array.join(' ');
 }
 
-
-fetch('https://randomuser.me/api/?results=56&inc=name,location,login,picture,nat')
+const getHome = () => {
+fetch(`https://randomuser.me/api/?page=${page}&results=50&inc=name,location,email,login,dob,picture,nat`)
 .then(res => res.json() )
 .then( data => {
     users = data.results;
+    console.log(users);
+    pageNumber.innerHTML = `${page}`;
     users.forEach(u => {
        const fullName = `${u.name.first} ${u.name.last}`.titleize();
        const city = `${u.location.city}`.titleize();
        fetch(`https://restcountries.eu/rest/v2/alpha/${u.nat}`)
         .then(res => res.json() )
         .then( data => {
-            const country = data.demonym;
+            const country = data.name;
             usersGrid.innerHTML +=
             `<div class="user_thumbnail flex" id="${u.login.uuid}" onclick="openProfile(this)" > 
                 <div class="img_home">
@@ -34,15 +39,18 @@ fetch('https://randomuser.me/api/?results=56&inc=name,location,login,picture,nat
                 </div>
                 <div class="data_home">
                     <p>${fullName.trim()}</p>
-                    <i class="fas fa-globe-americas"></i><span class="nation"> ${country}</span>
                     <div class="city_line">
                     <i class="fas fa-map-pin"></i><span class="city"> ${city.trim()}</span>
                     </div>
+                    <i class="fas fa-globe-americas"></i><span class="nation"> ${country}</span>
                 </div>
             </div>`;
         })
     })
 });
+}
+
+getHome();
 
 const openProfile = (u) => {
     const profile = users.find(user => user.login.uuid === u.id);
@@ -50,6 +58,12 @@ const openProfile = (u) => {
     <span onclick="closeProfile()"><i class="far fa-times-circle"></i></span>
     <div class="img_profile">
         <img src="${profile.picture.large}"
+    </div>
+    <div class="profile_data">
+        ${profile.login.username}
+        ${profile.name.first} ${profile.name.last}
+        ${profile.email}
+        ${profile.dob.age}
     </div>
     </div>`;
     usersGrid.classList.add('opacity');
@@ -62,4 +76,8 @@ const closeProfile = () => {
     userProfile.classList.add('hidden');
 }
 
-
+loadMore.onclick = () => {
+    page += 1;
+    usersGrid.innerHTML = '';
+    getHome();
+}
