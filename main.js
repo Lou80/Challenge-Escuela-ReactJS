@@ -69,8 +69,9 @@ const openProfile = (u) => {
         <div class="profile_data">
             <p id="profile_name">${profileName}</p>
             <p id="user">${profile.login.username}</p>    
-            <p id="email" class="hidden">${profile.email}</p> 
-            <p id="send"><i class="fas fa-envelope"></i><span onmouseover="view_email()" onmouseout="hide_email()"> Send email<span> 
+             
+            <p id="send"><i class="fas fa-envelope"></i><span onmouseover="view_email()"> Send email<span> 
+            <p id="email" class="non_visible">${profile.email}</p>
         </div>
     </div>`;
     
@@ -90,12 +91,5 @@ loadMore.onclick = () => {
     getHome();
 }
 
-const view_email = () => {
-    document.querySelector("#send").classList.add("hidden");
-    document.querySelector("#email").classList.remove("hidden");
-}
+const view_email = () => document.querySelector("#email").classList.remove("non_visible");
 
-const hide_email = () => {
-    document.querySelector("#send").classList.remove("hidden");
-    document.querySelector("#email").classList.add("hidden");
-}
