@@ -57,7 +57,11 @@ const openProfile = (u) => {
     const profileName = `${profile.name.first} ${profile.name.last}`.titleize();
     userProfile.innerHTML = `<div class="profile">
         <div id="background">
-        <span id="close" onclick="closeProfile()"><i class="far fa-times-circle"></i></span>
+            <span id="close" onclick="closeProfile()"><i class="far fa-times-circle"></i></span>
+            <p><i class="fas fa-user-edit"></i></p>
+            <p><i class="fas fa-comments"></i></p>
+            <p><i class="fas fa-bell"></i></p>
+
         </div>
         <div id="img_profile">
             <img src="${profile.picture.large}"

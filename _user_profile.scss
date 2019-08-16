@@ -14,21 +14,37 @@
         -webkit-box-shadow: 9px 7px 5px 0px $shadow-color;
         -moz-box-shadow: 9px 7px 5px 0px $shadow-color;
         box-shadow: 9px 7px 5px 0px $shadow-color;
-        span i {
-            font-size: 1.4em;
-            margin-left: 91%;
-            margin-top: 28%;
-            color: $close-color;
-            z-index: 10;
-            position: relative;
-            top: -140px;
-        }
         #background {
             background-color: $profile-background;
             width: 100%;
             height: 40%;
             border-top-left-radius: 10px;
             border-top-right-radius: 10px;
+            span i {
+                font-size: 1.5em;
+                margin-left: 91%;
+                margin-top: 29%;
+                color: $city-color;
+                z-index: 10;
+                position: relative;
+                top: -140px;
+            }
+            p i.fas {
+                color: $user-color;
+                z-index: 10;
+                position: relative;
+                font-size: 1.4em;
+                top: -177px;
+                right: 241px;
+                cursor: pointer;
+            }
+            p i.fas:hover {
+                -webkit-transform:scale(1.2);
+                transform:scale(1.2);
+                transition-timing-function: ease-in-out;
+                -webkit-transition-timing-function: ease-in-out;
+            }
+
         }
         #img_profile {
             position: relative;
