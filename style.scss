@@ -1,13 +1,15 @@
+@import '_colors.scss';
 @import '_users_grid.scss';
 @import '_user_profile.scss';
 
 body {
     box-sizing: border-box;
     font-family: 'Roboto';
-    background-color: #E4FCF0;
+    background-color: $background-color;
 }
 #title {
     text-align: center;
+    color: $name-color;
 }
 main {
     max-height: 1300px;
@@ -19,6 +21,7 @@ main {
         line-height: 2;
         letter-spacing: .5px;
         padding-right: 25px;
+        color: $shadow-color;
     }
     
     .button {
@@ -34,12 +37,15 @@ main {
         letter-spacing: .5px;
         padding: 5px 20px 4px;
         cursor: pointer;
-        background: transparent;
-        outline: none;
+        background-color: $city-color;
+        border-radius: 3px;
     }
     
-    .button_onmouseover {
-
+    button:hover {
+        background-color: $shadow-color;
+        color: $card-color;
+        transition-duration: 2s;
+        -webkit-transition-duration: 2s;
     }
 }
 

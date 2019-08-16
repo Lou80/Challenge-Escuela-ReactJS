@@ -3,6 +3,7 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
   padding-top: 15px;
+  margin-bottom: 20px;
 }
 
 .user_thumbnail {
@@ -47,10 +48,12 @@
 .user_thumbnail:hover {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
+  transition-timing-function: ease-in-out;
+  -webkit-transition-timing-function: ease-in-out;
 }
 
 .opacity {
-  opacity: 0.3;
+  opacity: 0.2;
 }
 
 #user_profile {
@@ -59,15 +62,58 @@
   left: 33%;
 }
 #user_profile .profile {
-  height: 300px;
-  width: 500px;
-  border: solid 1px black;
+  height: 350px;
+  width: 550px;
+  border-radius: 10px;
   z-index: 1;
+  background-color: #f7f7f7;
+  text-align: center;
+  border: 1px solid #AFAEAE;
+  -webkit-box-shadow: 9px 7px 5px 0px #514d4d;
+  -moz-box-shadow: 9px 7px 5px 0px #514d4d;
+  box-shadow: 9px 7px 5px 0px #514d4d;
 }
 #user_profile .profile span i {
   font-size: 1.4em;
   margin-left: 94%;
   margin-top: 2%;
+  color: #AFAfaf;
+  z-index: 10;
+  position: relative;
+  top: -140px;
+}
+#user_profile .profile #background {
+  background-color: #C8F4E6;
+  width: 100%;
+  height: 40%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+#user_profile .profile #img_profile {
+  position: relative;
+  top: -140px;
+}
+#user_profile .profile #img_profile img {
+  border: 1px solid #fcfcfc;
+  border-radius: 80px;
+}
+#user_profile .profile #profile_name {
+  color: #AFAEAE;
+  font-size: 1.8em;
+  margin-block-end: 0%;
+  margin-block-start: 0.5em;
+}
+#user_profile .profile #age {
+  margin-block-start: 0%;
+  margin-block-end: 1.7em;
+  color: #514D4D;
+}
+#user_profile .profile #user, #user_profile .profile #email {
+  color: #514D4D;
+}
+#user_profile .profile #send {
+  color: #AFAEAE;
+  cursor: pointer;
 }
 
 body {
@@ -78,6 +124,7 @@ body {
 
 #title {
   text-align: center;
+  color: #514D4D;
 }
 
 main {
@@ -90,6 +137,7 @@ main #page {
   line-height: 2;
   letter-spacing: 0.5px;
   padding-right: 25px;
+  color: #514d4d;
 }
 main .button {
   text-align: center;
@@ -103,9 +151,16 @@ main button {
   letter-spacing: 0.5px;
   padding: 5px 20px 4px;
   cursor: pointer;
-  background: transparent;
-  outline: none;
+  background-color: #AFAEAE;
+  border-radius: 3px;
 }
+main button:hover {
+  background-color: #514d4d;
+  color: #fcfcfc;
+  transition-duration: 2s;
+  -webkit-transition-duration: 2s;
+}
+
 .hidden {
   display: none;
 }

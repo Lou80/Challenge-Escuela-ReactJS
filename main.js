@@ -4,6 +4,7 @@ let users = '';
 const loadMore = document.querySelector('.button #load_more');
 let page = 1;
 const pageNumber = document.querySelector('#page_number');
+const main = document.querySelector('main');
 
 String.prototype.capitalize = function() {
     return this.charAt(0).toUpperCase() + this.slice(1);
@@ -19,7 +20,7 @@ String.prototype.titleize = function() {
 }
 
 const getHome = () => {
-fetch(`https://randomuser.me/api/?page=${page}&results=50&inc=name,location,email,login,dob,picture,nat`)
+fetch(`https://randomuser.me/api/?page=${page}&results=54&inc=name,location,email,login,dob,picture,nat`)
 .then(res => res.json() )
 .then( data => {
     users = data.results;
@@ -54,18 +55,22 @@ getHome();
 
 const openProfile = (u) => {
     const profile = users.find(user => user.login.uuid === u.id);
+    const profileName = `${profile.name.first} ${profile.name.last}`.titleize();
     userProfile.innerHTML = `<div class="profile">
-    <span onclick="closeProfile()"><i class="far fa-times-circle"></i></span>
-    <div class="img_profile">
-        <img src="${profile.picture.large}"
-    </div>
-    <div class="profile_data">
-        ${profile.login.username}
-        ${profile.name.first} ${profile.name.last}
-        ${profile.email}
-        ${profile.dob.age}
-    </div>
+        <div id="background"></div>
+        <span onclick="closeProfile()"><i class="far fa-times-circle"></i></span>
+        <div id="img_profile">
+            <img src="${profile.picture.large}"
+        </div>
+        <div class="profile_data">
+            <p id="profile_name">${profileName}</p>
+            <p id="age">${profile.dob.age}</p>
+            <p id="user">user: ${profile.login.username}</p>    
+            <p id="email" class="hidden">${profile.email}</p> 
+            <p id="send" onmouseover="view_email()" onmouseout="hide_email()"><i class="fas fa-envelope"></i><span> Send email<span> 
+        </div>
     </div>`;
+    
     usersGrid.classList.add('opacity');
     userProfile.classList.remove('hidden');
 }
@@ -80,4 +85,14 @@ loadMore.onclick = () => {
     page += 1;
     usersGrid.innerHTML = '';
     getHome();
+}
+
+const view_email = () => {
+    document.querySelector("#send").classList.add("hidden");
+    document.querySelector("#email").classList.remove("hidden");
+}
+
+const hide_email = () => {
+    document.querySelector("#send").classList.remove("hidden");
+    document.querySelector("#email").classList.add("hidden");
 }

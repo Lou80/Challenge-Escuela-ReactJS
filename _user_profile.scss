@@ -4,14 +4,58 @@
     top: 160px;
     left: 33%;
     .profile {
-        height: 300px;
-        width: 500px;
-        border: solid 1px black;
+        height: 350px;
+        width: 550px;
+        border-radius: 10px;
         z-index: 1;
+        background-color: $profile-color;
+        text-align: center;
+        border: 1px solid $city-color;
+        -webkit-box-shadow: 9px 7px 5px 0px $shadow-color;
+        -moz-box-shadow: 9px 7px 5px 0px $shadow-color;
+        box-shadow: 9px 7px 5px 0px $shadow-color;
         span i {
             font-size: 1.4em;
             margin-left: 94%;
             margin-top: 2%;
+            color: $close-color;
+            z-index: 10;
+            position: relative;
+            top: -140px;
         }
+        #background {
+            background-color: #C8F4E6;
+            width: 100%;
+            height: 40%;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+        #img_profile {
+            position: relative;
+            top: -140px;
+            img {
+                border: 1px solid $card-color;
+                border-radius: 80px;
+            }
+        }
+        #profile_name {
+            color: $city-color;
+            font-size: 1.8em;
+            margin-block-end: 0%;
+            margin-block-start: 0.5em;
+        }
+        #age {
+            margin-block-start: 0%;
+            margin-block-end: 1.7em;
+            color: $name-color;
+        }
+        #user, #email {
+            color: $name-color;
+        }
+        #send {
+            color: $city-color;
+            cursor: pointer;
+        }
+
     }  
 }
