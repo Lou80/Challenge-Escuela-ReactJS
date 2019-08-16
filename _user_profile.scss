@@ -16,15 +16,15 @@
         box-shadow: 9px 7px 5px 0px $shadow-color;
         span i {
             font-size: 1.4em;
-            margin-left: 94%;
-            margin-top: 2%;
+            margin-left: 91%;
+            margin-top: 28%;
             color: $close-color;
             z-index: 10;
             position: relative;
             top: -140px;
         }
         #background {
-            background-color: #C8F4E6;
+            background-color: $profile-background;
             width: 100%;
             height: 40%;
             border-top-left-radius: 10px;
@@ -32,7 +32,7 @@
         }
         #img_profile {
             position: relative;
-            top: -140px;
+            top: -98px;
             img {
                 border: 1px solid $card-color;
                 border-radius: 80px;
@@ -41,21 +41,36 @@
         #profile_name {
             color: $city-color;
             font-size: 1.8em;
-            margin-block-end: 0%;
+            margin-block-end: 0em;
             margin-block-start: 0.5em;
         }
-        #age {
-            margin-block-start: 0%;
-            margin-block-end: 1.7em;
+        #email {
             color: $name-color;
-        }
-        #user, #email {
-            color: $name-color;
+            cursor: pointer;
         }
         #send {
             color: $city-color;
-            cursor: pointer;
         }
-
+        #user {
+            color: $user-color;
+            margin-block-end: 3em;
+        }
     }  
+}
+
+@media only screen and (max-width: 834px) {
+    #user_profile {
+        .profile {
+            width: 300px;
+            height: 100%;
+            #img_profile {
+                position: relative;
+                top: -79px;
+            }
+            span i {
+            top: -76px;
+            margin-left: -86%;
+            }
+        }
+    }
 }

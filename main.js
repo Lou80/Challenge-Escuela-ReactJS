@@ -24,7 +24,6 @@ fetch(`https://randomuser.me/api/?page=${page}&results=54&inc=name,location,emai
 .then(res => res.json() )
 .then( data => {
     users = data.results;
-    console.log(users);
     pageNumber.innerHTML = `${page}`;
     users.forEach(u => {
        const fullName = `${u.name.first} ${u.name.last}`.titleize();
@@ -57,17 +56,17 @@ const openProfile = (u) => {
     const profile = users.find(user => user.login.uuid === u.id);
     const profileName = `${profile.name.first} ${profile.name.last}`.titleize();
     userProfile.innerHTML = `<div class="profile">
-        <div id="background"></div>
-        <span onclick="closeProfile()"><i class="far fa-times-circle"></i></span>
+        <div id="background">
+        <span id="close" onclick="closeProfile()"><i class="far fa-times-circle"></i></span>
+        </div>
         <div id="img_profile">
             <img src="${profile.picture.large}"
         </div>
         <div class="profile_data">
             <p id="profile_name">${profileName}</p>
-            <p id="age">${profile.dob.age}</p>
-            <p id="user">user: ${profile.login.username}</p>    
+            <p id="user">${profile.login.username}</p>    
             <p id="email" class="hidden">${profile.email}</p> 
-            <p id="send" onmouseover="view_email()" onmouseout="hide_email()"><i class="fas fa-envelope"></i><span> Send email<span> 
+            <p id="send"><i class="fas fa-envelope"></i><span onmouseover="view_email()" onmouseout="hide_email()"> Send email<span> 
         </div>
     </div>`;
     
